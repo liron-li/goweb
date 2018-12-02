@@ -1,16 +1,14 @@
 package models
 
-import "github.com/jinzhu/gorm"
-
 type User struct {
-	gorm.Model
-	UserName string
+	Model
+	Username string
 	Password string
 }
 
 func CheckAuth(username, password string) bool {
 	var user User
-	db.Select("id").Where(User{UserName: username, Password: password}).First(&user)
+	DB.Select("id").Where(User{Username: username, Password: password}).First(&user)
 	if user.ID > 0 {
 		return true
 	}

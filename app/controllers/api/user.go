@@ -18,40 +18,39 @@ type auth struct {
 }
 
 func Profile(c *gin.Context) {
-	data := make(map[string]interface{})
+	token := c.Query("token")
+	claims, err := util.ParseToken(token)
+	if err != nil {
+		c.AbortWithStatus(401)
+	}
 
-	c.JSON(http.StatusOK, gin.H{
-		"code": e.SUCCESS,
-		"msg":  e.GetMsg(e.SUCCESS),
-		"data": data,
-	})
+	c.JSON(http.StatusOK, util.RetJson(e.Success, claims))
 }
 
 func Login(c *gin.Context) {
-	username := c.Query("username")
-	password := c.Query("password")
+	username := c.PostForm("username")
+	password := c.PostForm("password")
 
 	valid := validation.Validation{}
 	a := auth{Username: username, Password: password}
 	ok, _ := valid.Valid(&a)
 
 	data := make(map[string]interface{})
-	code := e.INVALID_PARAMS
+	code := e.InvalidParams
 
 	if ok {
 		isExist := models.CheckAuth(username, password)
 		if isExist {
 			token, err := util.GenerateToken(username, password)
 			if err != nil {
-				code = e.ERROR_AUTH_TOKEN
+				code = e.Error
 			} else {
 				data["token"] = token
-
-				code = e.SUCCESS
+				code = e.Success
 			}
 
 		} else {
-			code = e.ERROR_AUTH
+			code = e.PasswordError
 		}
 	} else {
 		for _, err := range valid.Errors {
@@ -59,9 +58,5 @@ func Login(c *gin.Context) {
 		}
 	}
 
-	c.JSON(http.StatusOK, gin.H{
-		"code": code,
-		"msg":  e.GetMsg(code),
-		"data": data,
-	})
+	c.JSON(http.StatusOK, util.RetJson(code, data))
 }

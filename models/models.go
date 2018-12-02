@@ -10,7 +10,7 @@ import (
 	"goweb/pkg/setting"
 )
 
-var db *gorm.DB
+var DB *gorm.DB
 
 type Model struct {
 	gorm.Model
@@ -34,7 +34,7 @@ func init() {
 	host = sec.Key("HOST").String()
 	tablePrefix = sec.Key("DB_TABLE_PREFIX").String()
 
-	db, err = gorm.Open(dbConnection, fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local",
+	DB, err = gorm.Open(dbConnection, fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local",
 		user,
 		password,
 		host,
@@ -48,11 +48,11 @@ func init() {
 		return tablePrefix + defaultTableName
 	}
 
-	db.SingularTable(true)
-	db.DB().SetMaxIdleConns(10)
-	db.DB().SetMaxOpenConns(100)
+	DB.SingularTable(true)
+	DB.DB().SetMaxIdleConns(10)
+	DB.DB().SetMaxOpenConns(100)
 }
 
 func CloseDB() {
-	defer db.Close()
+	defer DB.Close()
 }

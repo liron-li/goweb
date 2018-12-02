@@ -15,20 +15,20 @@ func JWT() gin.HandlerFunc {
 		var code int
 		var data interface{}
 
-		code = e.SUCCESS
+		code = e.Success
 		token := c.Query("token")
 		if token == "" {
-			code = e.INVALID_PARAMS
+			code = e.InvalidParams
 		} else {
 			claims, err := util.ParseToken(token)
 			if err != nil {
-				code = e.ERROR_AUTH_CHECK_TOKEN_FAIL
+				code = e.InvalidJwtToken
 			} else if time.Now().Unix() > claims.ExpiresAt {
-				code = e.ERROR_AUTH_CHECK_TOKEN_TIMEOUT
+				code = e.JwtTokenTimeout
 			}
 		}
 
-		if code != e.SUCCESS {
+		if code != e.Success {
 			c.JSON(http.StatusUnauthorized, gin.H{
 				"code": code,
 				"msg":  e.GetMsg(code),
