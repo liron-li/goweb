@@ -8,7 +8,7 @@ import (
 	"goweb/pkg/logging"
 )
 
-func main() {
+func CronHandel() {
 	log.Println("Starting...")
 
 	c := cron.New()

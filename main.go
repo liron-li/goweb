@@ -9,11 +9,26 @@ import (
 	"os/signal"
 	"time"
 
+	"flag"
 	"goweb/pkg/setting"
 	"goweb/routers"
 )
 
+var action = flag.String("action", "serve", "action")
+
 func main() {
+
+	flag.Parse()
+
+	switch *action {
+	case "cron":
+		CronHandel()
+		return
+	case "migration":
+		Migration()
+		return
+	}
+
 	router := routers.InitRouter()
 
 	s := &http.Server{
