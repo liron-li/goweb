@@ -22,10 +22,10 @@ func main() {
 
 	switch *action {
 	case "cron":
-		CronHandel()
+		//CronHandel()
 		return
 	case "migration":
-		Migration()
+		//Migration()
 		return
 	}
 
