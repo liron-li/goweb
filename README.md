@@ -4,6 +4,14 @@
 
 # 安装
 
+1.
+
 ```
 dep ensure -v
+```
+
+2.
+
+```
+go install
 ```
