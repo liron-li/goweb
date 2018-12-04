@@ -1,6 +1,8 @@
 package main
 
-import "goweb/models"
+import (
+	"goweb/models"
+)
 
 func Migration() {
 	models.DB.AutoMigrate(&models.User{})
