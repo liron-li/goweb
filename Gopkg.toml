@@ -30,7 +30,7 @@
   name = "github.com/Unknwon/com"
 
 [[constraint]]
-  branch = "develop"
+  branch = "master"
   name = "github.com/astaxie/beego"
 
 [[constraint]]
@@ -42,17 +42,17 @@
   name = "github.com/gin-gonic/gin"
 
 [[constraint]]
+  branch = "master"
   name = "github.com/go-ini/ini"
-  version = "1.39.0"
 
 [[constraint]]
   branch = "master"
   name = "github.com/jinzhu/gorm"
 
-[prune]
-  go-tests = true
-  unused-packages = true
-
 [[constraint]]
   name = "github.com/robfig/cron"
   version = "1.1.0"
+
+[prune]
+  go-tests = true
+  unused-packages = true
