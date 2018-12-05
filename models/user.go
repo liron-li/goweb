@@ -2,8 +2,8 @@ package models
 
 type User struct {
 	Model
-	Username string
-	Password string
+	Username string `gorm:"type:varchar(32);unique_index;default:''"`
+	Password string `gorm:"type:varchar(50);default:''"`
 }
 
 func CheckAuth(username, password string) bool {
