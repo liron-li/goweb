@@ -1,7 +1,7 @@
-package main
+package migration
 
 import (
-	"goweb/models"
+	"goweb/app/models"
 )
 
 func Migration() {

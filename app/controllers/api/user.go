@@ -6,7 +6,7 @@ import (
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
 
-	"goweb/models"
+	"goweb/app/models"
 	"goweb/pkg/e"
 	"goweb/pkg/logging"
 	"goweb/pkg/util"

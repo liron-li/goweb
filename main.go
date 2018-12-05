@@ -10,6 +10,8 @@ import (
 	"time"
 
 	"flag"
+	"goweb/app/crontab"
+	"goweb/database/migration"
 	"goweb/pkg/setting"
 	"goweb/routers"
 )
@@ -22,10 +24,10 @@ func main() {
 
 	switch *action {
 	case "cron":
-		CronHandel()
+		crontab.CronHandel()
 		return
 	case "migration":
-		Migration()
+		migration.Migration()
 		return
 	}
 
