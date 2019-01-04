@@ -15,3 +15,9 @@ dep ensure -v
 ```
 go install
 ```
+
+3. 编译
+
+```
+go build -ldflags "-s -w"
+```
