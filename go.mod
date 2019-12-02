@@ -1,0 +1,42 @@
+module goweb
+
+go 1.13
+
+require (
+	github.com/Unknwon/com v0.0.0-20181010210213-41959bdd855f
+	github.com/campoy/embedmd v0.0.0-20181127031020-97c13d6e4160
+	github.com/client9/misspell v0.3.5-0.20180309020325-c0b55c823952
+	github.com/dgrijalva/jwt-go v3.2.1-0.20180719211823-0b96aaa70776+incompatible
+	github.com/dustin/go-broadcast v0.0.0-20171205050544-f664265f5a66
+	github.com/gin-contrib/sse v0.0.0-20170109093832-22d885f9ecc7
+	github.com/gin-gonic/autotls v0.0.0-20180426091246-be87bd5ef97b
+	github.com/gin-gonic/gin v1.3.1-0.20181126150151-b97ccf3a43d2
+	github.com/go-ini/ini v1.39.0
+	github.com/go-sql-driver/mysql v1.4.1
+	github.com/golang/protobuf v1.2.1-0.20181128192352-1d3f30b51784
+	github.com/jessevdk/go-assets v0.0.0-20160921144138-4f4301a06e15
+	github.com/jinzhu/gorm v1.9.2-0.20180818231433-32455088f24d
+	github.com/jinzhu/inflection v0.0.0-20180308033659-04140366298a
+	github.com/json-iterator/go v1.1.5
+	github.com/kisielk/gotool v1.0.0
+	github.com/manucorporat/stats v0.0.0-20180402194714-3ba42d56d227
+	github.com/mattn/go-isatty v0.0.5-0.20180830101745-3fb116b82035
+	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+	github.com/modern-go/reflect2 v1.0.1
+	github.com/pmezard/go-difflib v1.0.0
+	github.com/robfig/cron v1.2.0
+	github.com/thinkerou/favicon v0.1.0
+	github.com/ugorji/go v1.1.7
+	golang.org/x/crypto v0.0.0-20181015023909-0c41d7ab0a0e
+	golang.org/x/lint v0.0.0-20181026193005-c67002cb31c3
+	golang.org/x/net v0.0.0-20181011144130-49bb7cea24b1
+	golang.org/x/sys v0.0.0-20181128092732-4ed8d59d0b35
+	golang.org/x/text v0.3.1-0.20180907001641-4ae125624924
+	golang.org/x/tools v0.0.0-20180917221912-90fa682c2a6e
+	google.golang.org/appengine v1.3.0
+	google.golang.org/genproto v0.0.0-20180831171423-11092d34479b
+	google.golang.org/grpc v1.15.0
+	gopkg.in/go-playground/validator.v8 v8.18.2
+	gopkg.in/yaml.v2 v2.2.2
+	honnef.co/go/tools v0.0.0-20180728063816-88497007e858
+)
